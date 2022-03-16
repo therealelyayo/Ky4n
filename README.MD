@@ -1,6 +1,5 @@
 <div id="image" align="center">
   <img src="https://raw.githubusercontent.com/alk4x/alk4x/main/assets/cube.png" alt="Ky4nImage" height="300">
-  <h2><strong>Ky4n - Botnet</strong></h2>
 </div>
 
 <div id="badges" align="center">
