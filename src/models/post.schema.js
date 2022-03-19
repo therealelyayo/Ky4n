@@ -20,14 +20,30 @@ const { Schema, model } = require("mongoose");
  */
 
 const PostModel = new Schema({
-  id: Number,
-  title: String,
-  IPv4: String,
-  OneContent: String,
-  TwoContent: String,
-  ThreeContent: String,
-  Author: String,
-  Fecha: String,
+  id: {
+    type: Number,
+  },
+  title: {
+    type: String,
+  },
+  IPv4: {
+    type: String,
+  },
+  OneContent: {
+    type: String,
+  },
+  TwoContent: {
+    type: String,
+  },
+  ThreeContent: {
+    type: String,
+  },
+  Author: {
+    type: String,
+  },
+  Fecha: {
+    type: String,
+  },
 });
 
 module.exports = model("Schema", PostModel);
