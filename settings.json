@@ -1,6 +1,0 @@
-{
-  "Auth": {
-    "MongoURI": "mongodb+srv://...",
-    "Password": "admin"
-  }
-}
