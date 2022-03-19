@@ -1,0 +1,38 @@
+<%- include("includes/header"); -%>
+<html>
+  <body>
+    <header>
+      <nav>
+        <a href="/" class="HeaderLogo"><span>Ky4n</span></a>
+        <div class="HeaderLinks">
+          <ul class="NavLinks">
+            <li class="NavLink">
+              <a href="/"><i class="fa-solid fa-house-chimney"></i> Home</a>
+            </li>
+            <li class="NavLink">
+              <a href="/infectados"
+                ><i class="fa-solid fa-biohazard"></i> Infectados</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <section class="SectionMain">
+      <div class="main">
+        <img src="/images/ky4n.png" alt="Ky4n" class="invert" />
+        <h1>Ky4n - Login</h1>
+        <p>"Ahora la presa se convierte en cazador."</p>
+        <form class="LoginForm" id="LoginForm" action="/login" method="POST">
+          <input
+            type="password"
+            name="password"
+            placeholder="Ingresa la contraseña..."
+          />
+          <button type="submit" name="">Login</button>
+        </form>
+      </div>
+    </section>
+    <footer>Created By<a>:</a> aqu4x0<a>/</a> Mr.Char with <a>❤</a></footer>
+  </body>
+</html>

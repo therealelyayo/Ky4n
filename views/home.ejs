@@ -1,0 +1,61 @@
+<%- include("includes/header"); -%>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="HeaderLogo"><span>Ky4n</span></a>
+      <div class="HeaderLinks">
+        <ul class="NavLinks">
+          <li class="NavLink">
+            <a href="/"><i class="fa-solid fa-house-chimney"></i> Home</a>
+          </li>
+          <li class="NavLink">
+            <a href="/infectados"
+              ><i class="fa-solid fa-biohazard"></i> Infectados</a
+            >
+          </li>
+          <li class="NavLink">
+            <a href="/logout"
+              ><i class="fa-solid fa-right-from-bracket"></i> Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <section class="SectionStats">
+    <div class="stats">
+      <div class="stat">
+        <span>Victims</span>
+        <p><%= db %> users.</p>
+      </div>
+      <div class="stat">
+        <span>Fecha</span>
+        <p id="fecha"></p>
+      </div>
+      <div class="stat">
+        <span>IPv4</span>
+        <p class="IPv4" id="IPv4"></p>
+      </div>
+    </div>
+  </section>
+  <section class="SectionOwners">
+    <div class="owners">
+      <div class="owner">
+        <img src="/images/coder.png" alt="" srcset="" />
+        <span>Mr. Char</span>
+        <p>Sockets, Python Dev.</p>
+        <a target="_blank" href="https://github.com/CodingChar">Follow</a>
+      </div>
+      <div class="owner">
+        <img src="/images/aqu4x0.jpeg" alt="" srcset="" />
+        <span>Aqu4x0</span>
+        <p>Frontend, Backend, CyberSecurity</p>
+        <a target="_blank" href="https://github.com/aqu4x0">Follow</a>
+      </div>
+    </div>
+  </section>
+  <footer>Created By<a>:</a> Aqu4x0<a>/</a> Mr.Char with <a>❤</a></footer>
+
+  <script src="/javascript/IPv4.js"></script>
+  <script src="/javascript/Time.js"></script>
+</body>

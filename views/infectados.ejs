@@ -1,0 +1,54 @@
+<%- include("includes/header"); -%>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="HeaderLogo"><span>Ky4n</span></a>
+      <div class="HeaderLinks">
+        <ul class="NavLinks">
+          <li class="NavLink">
+            <a href="/"><i class="fa-solid fa-house-chimney"></i> Home</a>
+          </li>
+          <li class="NavLink">
+            <a href="/infectados"
+              ><i class="fa-solid fa-biohazard"></i> Infectados</a
+            >
+          </li>
+          <li class="NavLink">
+            <a href="/logout"
+              ><i class="fa-solid fa-right-from-bracket"></i> Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <section class="SectionMain">
+    <div class="main">
+      <img src="/images/ky4n.png" alt="Ky4n" class="invert" />
+      <h1>Ky4n - Infectados</h1>
+      <br />
+      <hr />
+    </div>
+  </section>
+  <% if (!db) { %>
+  <p>La base de datos esta vacia, infecta para recibir informacion.</p>
+  <% } else { %> <% for(item of db) { %>
+  <section class="section_zombies">
+    <div id="zombies" class="zombies">
+      <div id="zombies" class="zombies">
+        <div class="zombie">
+          <img class="user_pfp" src="images/default.png" alt="" srcset="" />
+          <span>[<%= item.title %> : <%= item.IPv4 %>]</span>
+          <p id="user_email">EMAIL: <%= item.TwoContent %></p>
+          <p>PHONE: <%= item.ThreeContent %></p>
+          <div class="badges">
+            <!-- -->
+          </div>
+          <a href="/v1/api/get?id=<%= item.id %>">View info.</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <% } %> <% } %>
+  <footer>Created By<a>:</a> Aqu4x0<a>/</a> Mr.Char with <a>❤</a></footer>
+</body>

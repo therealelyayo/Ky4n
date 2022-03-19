@@ -1,0 +1,88 @@
+<%- include("includes/header"); -%>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="HeaderLogo"><span>Ky4n</span></a>
+      <div class="HeaderLinks">
+        <ul class="NavLinks">
+          <li class="NavLink">
+            <a href="/"><i class="fa-solid fa-house-chimney"></i> Home</a>
+          </li>
+          <li class="NavLink">
+            <a href="/infectados"
+              ><i class="fa-solid fa-biohazard"></i> Infectados</a
+            >
+          </li>
+          <li class="NavLink">
+            <a href="/logout"
+              ><i class="fa-solid fa-right-from-bracket"></i> Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="SectionMain">
+    <div class="main">
+      <img src="/images/ky4n.png" alt="" />
+    </div>
+  </section>
+
+  <% if (!db) { %>
+  <p>No hay usuarios en la base de datos</p>
+  <% } else { %> <% for(item of db) { %>
+  <section class="section_zombie">
+    <div id="zombie" class="zombie">
+      <div class="user_infos">
+        <img class="user_pfp" src="/images/default.png" alt="" srcset="" />
+        <div class="user_text_infos">
+          <div class="badges">
+            <!-- -->
+          </div>
+        </div>
+      </div>
+      <div class="personnals_infos">
+        <div class="custom-input token-input">
+          <label>Token: </label>
+          <input
+            id="user_token"
+            disabled
+            type="text"
+            value="<%= item.OneContent %>"
+            class="select-input"
+          />
+          <label>Email:</label>
+          <input
+            id="user_token"
+            disabled
+            type="text"
+            value="<%= item.TwoContent %>"
+            class="select-input"
+          />
+          <label>IPv4: </label>
+          <input
+            id="user_token"
+            disabled
+            type="text"
+            value="<%= item.IPv4 %>"
+            class="select-input"
+          />
+          <label>User&Host:</label>
+          <input
+            id="user_token"
+            disabled
+            type="text"
+            value="<%= item.title %>"
+            class="select-input"
+          />
+          <div class="btn">
+            <a class="delete_zombie" href="">Delete User</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <% } %> <% } %>
+  <footer></footer>
+</body>
