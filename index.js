@@ -14,7 +14,7 @@ const express = require("express"),
 
 /** @description: Ahora la estructura principal del servidor [Metodo: IIFE]: */
 
-(() => {
+(async function () {
   if (!Auth["MongoURI"] && !Auth["Password"]) {
     throw new Error("No se ha configurado la base de datos");
   } else {
