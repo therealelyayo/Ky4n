@@ -18,7 +18,7 @@ const express = require("express"),
   if (!Auth["MongoURI"] && !Auth["Password"]) {
     throw new Error("No se ha configurado la base de datos");
   } else {
-    connect(Auth["MongoURI"], {
+    await connect(Auth["MongoURI"], {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
