@@ -11,6 +11,3 @@
 
 ---
 
-<h1 align="center">Inspirado en: <a href="https://github.com/KanekiWeb/Xenos">Xenos</h1>
-
-- Using: ejs, mongodb, express, etc...
