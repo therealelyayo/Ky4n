@@ -9,11 +9,12 @@ const express = require("express"),
   { json, urlencoded } = require("body-parser"),
   { connect } = require("mongoose"),
   { Auth } = require("./settings.json"),
+  PORT = process.env.PORT || 3000,
   APP = express();
 
-/** @description: Ahora la estructura principal del servidor: */
+/** @description: Ahora la estructura principal del servidor [Metodo: IIFE]: */
 
-const index = (port) => {
+(() => {
   if (Auth["Password"] == null) {
     console.log("`Password` no esta rellenado en: settings.json");
     process.exit(1);
@@ -65,15 +66,9 @@ const index = (port) => {
       });
     });
 
-    APP.listen(port, () => {
+    APP.listen(PORT, () => {
       console.clear();
-      console.log(`[SERVER] :: Servidor iniciado en el puerto ${port}`);
+      console.log(`[SERVER] :: Servidor iniciado en el puerto ${PORT}`);
     });
   }
-};
-
-/**
- * @description: Iniciamos el servidor con parametro del puerto:
- */
-
-index(process.env.PORT || 4000);
+})();
