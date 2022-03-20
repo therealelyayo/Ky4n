@@ -15,12 +15,8 @@ const express = require("express"),
 /** @description: Ahora la estructura principal del servidor [Metodo: IIFE]: */
 
 (() => {
-  if (Auth["Password"] == null) {
-    console.log("`Password` no esta rellenado en: settings.json");
-    process.exit(1);
-  } else if (Auth["MongoURI"] == null) {
-    console.log("`MongoURI` no esta rellenado en: settings.json");
-    process.exit(1);
+  if (!Auth["MongoURI"] && !Auth["Password"]) {
+    throw new Error("No se ha configurado la base de datos");
   } else {
     connect(Auth["MongoURI"], {
       useNewUrlParser: true,
