@@ -16,13 +16,16 @@ const express = require("express"),
 
 (async function () {
   if (!Auth["MongoURI"] && !Auth["Password"]) {
-    throw new Error("No se ha configurado el archivo de configuracion: 'settings.json'");
+    throw new Error(
+      "No se ha configurado el archivo de configuracion: 'settings.json'"
+    );
   } else {
     await connect(Auth["MongoURI"], {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
       .then(() => {
+        console.clear();
         console.log(`[MongoDB] :: Conectado exitosamente a la base de datos.`);
       })
       .catch((err) => {
@@ -63,7 +66,6 @@ const express = require("express"),
     });
 
     APP.listen(PORT, () => {
-      console.clear();
       console.log(`[SERVER] :: Servidor iniciado en el puerto ${PORT}`);
     });
   }
