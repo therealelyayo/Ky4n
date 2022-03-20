@@ -16,7 +16,7 @@ const express = require("express"),
 
 (async function () {
   if (!Auth["MongoURI"] && !Auth["Password"]) {
-    throw new Error("No se ha configurado la base de datos");
+    throw new Error("No se ha configurado el archivo de configuracion: 'settings.json'");
   } else {
     await connect(Auth["MongoURI"], {
       useNewUrlParser: true,
