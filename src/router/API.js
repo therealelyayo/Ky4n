@@ -43,7 +43,7 @@ router.get("/post", async (request, response) => {
   } else {
     database.init();
     new database({
-      id: data.length,
+      _id: data.length,
       title: query.title,
       IPv4: query.IPv4,
       OneContent: query.OneContent,
@@ -76,7 +76,7 @@ router.get("/get", async (request, response) => {
       flash("Error", "Invalid query");
       return await response.redirect("/");
     } else {
-      const db = await database.find({ id: query.id });
+      const db = await database.find({ _id: query.id });
       response.render("infectado", {
         title: `Ky4n | ID: ${query.id}`,
         db,
@@ -86,11 +86,11 @@ router.get("/get", async (request, response) => {
   }
 });
 
-router.get("/remove", async (request, response) => {
+router.delete("/remove", async (request, response) => {
   const query = request.query;
   const password = Auth["Password"];
 
-  if (!query.Password) {
+  if (!query.id && !query.Password) {
     response.status(400).json({
       success: false.valueOf(),
       message: "[400] Bad request | Password where is it?",
@@ -98,11 +98,23 @@ router.get("/remove", async (request, response) => {
     return await response.redirect("/");
   } else {
     if (query.Password === password) {
-      const database = await database.remove({ id: query.id });
-      response.json({
-        success: true,
-        message: "[200] Post removed",
-      });
+      const db = database.findOneAndRemove(
+        { _id: query.id },
+        function (err, res) {
+          if (err) {
+            response.status(500).json({
+              success: false.valueOf(),
+              message: "[500] Internal server error",
+              error: err,
+            });
+          } else {
+            response.json({
+              success: true,
+              message: "[200] Post deleted",
+            });
+          }
+        }
+      );
     } else {
       response.status(400).json({
         success: false.valueOf(),
