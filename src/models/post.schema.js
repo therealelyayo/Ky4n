@@ -20,7 +20,7 @@ const { Schema, model } = require("mongoose");
  */
 
 const PostModel = new Schema({
-  id: {
+  _id: {
     type: Number,
   },
   title: {
