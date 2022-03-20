@@ -11,3 +11,8 @@
 
 ---
 
+<div id="preview" align="center">
+  <h3><strong>Preview images:</strong></h3>
+  <img src="">
+</div>
+
