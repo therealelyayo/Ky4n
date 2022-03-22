@@ -120,7 +120,6 @@ router.delete("/remove", async (request, response) => {
         success: false.valueOf(),
         message: "[400] Bad request | Password is not correct",
       });
-      return await response.redirect("/");
     }
   }
 });
